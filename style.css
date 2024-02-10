@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+:root {
+    --primaryColor: #cf0f0f;
+    --secondaryColor: #000;
+    --bgcolor1: #000;
+    --bgcolor2: #fff;
+    --bgcolor3: #86838350;
+    --bgcolor4: #feC7C7;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Black Ops One", system-ui;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgcolor1);
+}
+
+.container {
+    background-color: var(--bgcolor2);
+    border: 20px double;
+    box-shadow: inset 24px 24px 6px -1px rgba(0, 0, 0, 0.2), 20.5px 20.5px 0px rgba(255, 255, 255, .30), 20px 32px 10px -10px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    animation: changeColor 8s infinite;
+}
+
+@keyframes changeColor {
+
+    0% {
+        border-color: red;
+    }
+
+    20% {
+        border-color: magenta;
+    }
+
+    40% {
+        border-color: blue;
+    }
+
+    60% {
+        border-color: gold;
+    }
+
+    80% {
+        border-color: chartreuse;
+    }
+
+    100% {
+        border-color: purple;
+    }
+}
+
+.date-time {
+    display: grid;
+    grid-template-columns: 140px 80px 140px 80px 140px;
+    grid-template-rows: 70px 140px 70px 140px;
+    gap: 20px 0;
+    padding: 30px 80px;
+}
+
+.center {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.format1 {
+    color: var(--primaryColor);
+    border-radius: 15px;
+    font-size: 5.5em;
+    background-color: var(--bgcolor3);
+    position: relative;
+    overflow: hidden;
+}
+
+.format2 {
+    color: var(--secondaryColor);
+    border-radius: 20px;
+    margin-top: 30px;
+    font-size: 1.5em;
+    background-color: var(--bgcolor4);
+    position: relative;
+    overflow: hidden;
+}
+
+.format3 {
+    font-size: 5em;
+}
+
+.format2::before,
+.format1::before {
+    content: "";
+    position: absolute;
+    height: 200px;
+    width: 10px;
+    background-color: azure;
+    left: 0px;
+    top: -100px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, .5) 30%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.5) 70%);
+    transform: rotate(45deg);
+    transition: all 1.5s;
+}
+
+.format2:hover::before,
+.format1:hover::before {
+    left: 200px;
+    top: 100px;
+}
+
+.format2:not(:hover)::before,
+.format1:not(:hover)::before {
+    transition: all .1s;
+    background: transparent;
+}
+
+.thirdColumn {
+    grid-column: 3/4;
+}
+
+.fiftColumn {
+    grid-column: 5/6;
+}
+
+.daySection {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin: 10px 80px 30px 80px;
+}
+
+input {
+    accent-color: var(--primaryColor);
+    width: 25px;
+    height: 25px;
+}
+
+label {
+    color: var(--secondaryColor);
+    font-size: 22px;
+    position: relative;
+    bottom: 5px;
+}
+
+.message {
+    color: #fff;
+    font-size: 2em;
+    display: none;
+    text-align: center;
+    padding: 50px;
+}
+
+@media (max-width: 780px) {
+    .container {
+        display: none;
+    }
+
+    .message {
+        display: block;
+    }
+
+}
